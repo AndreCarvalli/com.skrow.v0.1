@@ -1,0 +1,180 @@
+@import url('https://googleapis.com');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css');
+html {
+  scroll-behavior: smooth;
+}
+body{
+    background: linear-gradient(to right, #060E20, #21203E);
+    font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+    margin: 0px;
+}
+nav{
+    background: linear-gradient(to right, #060E20, #21203E);
+    box-shadow:  2px 2px 2px rgba(0, 0, 0, 0.15);
+    font-family: "JetBrains Mono", monospace;
+}
+.gradient-text {
+  background-image: linear-gradient(90deg, #8a5eb3, #feb47b); 
+  font-weight: bold;
+  background-clip: text;                                     
+  -webkit-background-clip: text;                              
+  color: transparent; 
+font-family: "JetBrains Mono", monospace;                                      
+}
+
+.info-status{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info-status p{
+    margin: 0px;
+}
+.info-button{
+    background-color: #141F38;
+    height: 60px;
+    border-radius: 4px;
+    width: 350px;
+    border: 0.5px solid #40485D;
+    color:#DEE5FF;
+    padding-left:16px;
+    padding-right:16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.btn-login{
+    width: 100px;
+    height: 40px;
+    background-color: #8a5eb3;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    color: white;
+}
+.btn-login:hover{
+    background-color: #9566c1;
+}
+.btn-login:active{
+    background-color: #8c56bf;
+}
+a:hover{
+    color: #8a5eb3;
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width:100%;      
+}
+.hero-content{ 
+    width:100%;
+    border: #060E20 1px solid;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.hero-content h1{
+    text-align: center;
+}
+
+.hero-content p{
+    text-align: center;
+}
+
+h5{
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight:300px;
+    font-style: normal;
+}
+#features{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    gap: 40px;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.cards-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.card{
+    width:204px;
+    height:300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #141F38;
+    border-radius: 4px;
+    border: 0.5px solid #40485D;
+    color:#DEE5FF;
+    padding-left:16px;
+    padding-right:16px;
+    padding-top:80px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.card p{
+    text-align: center;
+    font-size: 14px;
+    color:white;
+}
+.card h3{
+    text-align: center;
+    color: #feb47b;
+}
+
+#login{
+    width: 500px;
+    height: 500px;
+}
+#login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+dialog::backdrop{
+    background-color: #060e20a2;
+}
+
+.gray-txt{
+    color: rgb(191, 188, 220);
+    font-family: "JetBrains Mono", monospace;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(to right, #040a17, #21203E);
+    padding:80px;
+}
+@media screen and (max-width:780px) {
+    .hero{
+         flex-wrap: wrap; 
+    } 
+}
