@@ -172,8 +172,36 @@ dialog::backdrop{
     background: linear-gradient(to right, #040a17, #21203E);
     padding:80px;
 }
+
+
 @media screen and (max-width:780px) {
     .hero{
          flex-wrap: wrap; 
     } 
+}
+
+/*  */
+
+#projects{
+    height: 100vh;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card{
+    border: 1px solid grey;
+    border-radius: 16px;
+}
+
+.title-section{
+    background-color: #040a17;
+    padding:24px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.milestones{
+    padding:24px;
 }
