@@ -1,0 +1,86 @@
+{
+  "projects": [
+    {
+      "id": "SKR-001",
+      "title": "Website Development",
+      "clientId": "CLIENT-101",
+      "currency": "KES",
+      "totalAmount": 50000,
+      "status": "in_progress",
+      "milestones": [
+        {
+          "id": "M1",
+          "title": "UI Design",
+          "amount": 15000,
+          "status": "pending",
+          "clientApproved": false,
+          "developerApproved": false,
+          "tasks": [
+            {
+              "id": "T1",
+              "title": "Create wireframes",
+              "description": "Design the layout of the website pages",
+              "developerId": "DEV-201",
+              "developerName": "Developer X",
+              "amount": 5000,
+              "status": "completed",
+              "completedAt": "2026-10-21T14:00:00Z",
+              "clientApproved": true,
+              "developerApproved": true,
+              "paymentStatus": "released"
+            },
+            {
+              "id": "T2",
+              "title": "Create UI designs",
+              "description": "Create high-fidelity designs for the website",
+              "developerId": "DEV-202",
+              "developerName": "Developer Y",
+              "amount": 10000,
+              "status": "in_progress",
+              "completedAt": null,
+              "clientApproved": false,
+              "developerApproved": false,
+              "paymentStatus": "held"
+            }
+          ]
+        },
+        {
+          "id": "M2",
+          "title": "Development",
+          "amount": 35000,
+          "status": "locked",
+          "clientApproved": false,
+          "developerApproved": false,
+          "tasks": [
+            {
+              "id": "T3",
+              "title": "Develop frontend",
+              "description": "Build responsive website pages",
+              "developerId": "DEV-202",
+              "developerName": "Developer Y",
+              "amount": 20000,
+              "status": "pending",
+              "completedAt": null,
+              "clientApproved": false,
+              "developerApproved": false,
+              "paymentStatus": "locked"
+            },
+            {
+              "id": "T4",
+              "title": "Develop backend",
+              "description": "Build APIs and database functionality",
+              "developerId": "DEV-203",
+              "developerName": "Developer Z",
+              "amount": 15000,
+              "status": "pending",
+              "completedAt": null,
+              "clientApproved": false,
+              "developerApproved": false,
+              "paymentStatus": "locked"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

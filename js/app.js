@@ -6,3 +6,9 @@ login_btn.addEventListener(`click`, (event) => {
     login_dialog.showModal() // Call the modal on button click
 })
 
+document.addEventListener(`DOMContentLoaded`,(e)=>{
+    fetch('http://localhost:4000/projects')
+    .then(res => res.json())
+    .then(data => console.log(data))    
+})
+
