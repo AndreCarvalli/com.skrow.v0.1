@@ -38,24 +38,13 @@ btn_login.addEventListener(`click`, ()=> {
 })
 
 
-//Adding a project to our code 
-// document.addEventListener(`DOMContentLoaded`,(e)=>{
-//     fetch('http://localhost:4000/projects', {
-//         method: 'POST',
-//         headers:{
-//             'Content-Type':'application/json'
-//         },
-//         body: JSON.stringify({
-            
-//         })
-//     })
-//     .then(res=> res.json())
-//     .then(data => console.log(data))
-// })
 
+const API = `http://localhost:4000/projects`
+const API2 = `https://andrecarvalli.github.io/com.skrow.v0.1/db.json`
+const API3 = 'https://raw.githubusercontent.com/AndreCarvalli/com.skrow.v0.1/refs/heads/main/db.json'
 
 //Fetch data from db.json endpoint
-document.addEventListener(`DOMContentLoaded`,(e)=>{
+document.addEventListener(`DOMContentLoaded`, (e) => {
     fetch('https://andrecarvalli.github.io/com.skrow.v0.1/db.json')
     .then(res => {
         if(!res.ok){
@@ -114,3 +103,19 @@ function displayInfo(data){
             })
     });
 }
+
+//Adding a project to our code 
+// document.addEventListener(`DOMContentLoaded`,(e)=>{
+//     e.preventDefault()
+//     fetch('http://localhost:4000/projects', {
+//         method: 'POST',
+//         headers:{
+//             'Content-Type':'application/json'
+//         },
+//         body: JSON.stringify({
+        
+//         })
+//     })
+//     .then(res=> res.json())
+//     .then(data => console.log(data))
+// })
