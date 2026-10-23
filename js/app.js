@@ -56,7 +56,7 @@ btn_login.addEventListener(`click`, ()=> {
 
 //Fetch data from db.json endpoint
 document.addEventListener(`DOMContentLoaded`,(e)=>{
-    fetch('https://raw.githubusercontent.com/AndreCarvalli/com.skrow.v0.1/refs/heads/gh-pages/db.json')
+    fetch('https://andrecarvalli.github.io/com.skrow.v0.1/db.json')
     .then(res => {
         if(!res.ok){
             throw new Error(`Request failed: ${res.status} ${res.statusText}`)
