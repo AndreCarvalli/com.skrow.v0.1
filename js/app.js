@@ -1,24 +1,68 @@
-const login_btn = document.querySelector("#login-btn")
 const login_dialog = document.querySelector("#login")
+const btn_login =document.querySelector("#login-btn")
 
 // Element fetch
 const project_name = document.querySelector('#project-name')
 const client_name = document.querySelector('#client-name')
 const project_amount = document.querySelector('#project-amount')
 const milestone_name = document.querySelector('.milestone-name')
+const project_card = document.querySelector('.project-card')
+const project_login_prompt = document.querySelector('.project-login-prompt ')
 
 const milestones_container = document.querySelector('.milestones')
+const form = document.querySelector('#login-form')
 
 
-login_btn.addEventListener(`click`, (event) => {
+//Simulate User Log In
+form.addEventListener(`submit`,(event)=>{
     event.preventDefault()
-    login_dialog.showModal() // Call the modal on button click
+     const credentials = {
+        username:event.target.username.value,
+        password: event.target.password.value
+     }
+    
+     if(!credentials.username == ""){
+        console.log(credentials);
+        project_card.style.display = "block"
+        project_login_prompt.style.display ="none"
+        login_dialog.close()
+     }
 })
+
+function closeDialog(){
+    login_dialog.close()
+}
+
+btn_login.addEventListener(`click`, ()=> {
+    login_dialog.showModal()    
+})
+
+
+//Adding a project to our code 
+// document.addEventListener(`DOMContentLoaded`,(e)=>{
+//     fetch('http://localhost:4000/projects', {
+//         method: 'POST',
+//         headers:{
+//             'Content-Type':'application/json'
+//         },
+//         body: JSON.stringify({
+            
+//         })
+//     })
+//     .then(res=> res.json())
+//     .then(data => console.log(data))
+// })
+
 
 //Fetch data from db.json endpoint
 document.addEventListener(`DOMContentLoaded`,(e)=>{
     fetch('http://localhost:4000/projects')
-    .then(res => res.json())
+    .then(res => {
+        if(!res.ok){
+            throw new Error(`Request failed: ${res.status} ${res.statusText}`)
+        }
+        return res.json()
+    })
     .then(data => {
         console.log(data)
         displayInfo(data)
@@ -26,9 +70,8 @@ document.addEventListener(`DOMContentLoaded`,(e)=>{
     .catch(error => console.log(error))    
 })
 
-// Display data in html .... projects> milestones > tasks []
+// Display data in HTML .... projects> milestones > tasks []
 function displayInfo(data){
-    // console.log(data[0].milestones[0].tasks);
     
     data.forEach(element => {
             project_name.textContent = `Project : ${element.title}`

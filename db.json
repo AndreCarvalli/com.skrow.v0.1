@@ -2,8 +2,8 @@
   "projects": [
     {
       "id": "SKR-001",
-      "title": "Website Development",
-      "clientId": "CLIENT-101",
+      "title": "Okolea Service: Website Development",
+      "clientId": "Safaricom",
       "currency": "KES",
       "totalAmount": 50000,
       "status": "in_progress",
@@ -82,5 +82,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
