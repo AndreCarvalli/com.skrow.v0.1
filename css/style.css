@@ -157,6 +157,13 @@ h5{
     border: 1px solid grey;
     background-color: #040a17;
 }
+#login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 #login-form{
     display: flex;
     flex-direction: column;
@@ -168,6 +175,7 @@ h5{
 label {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 5px;
 }
 
@@ -215,7 +223,6 @@ dialog::backdrop{
 
 #projects{
     height: 100vh;
-    border: 1px solid white;
     display: flex;
     flex-direction: column;
     gap: 32px;
