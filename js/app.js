@@ -56,7 +56,7 @@ btn_login.addEventListener(`click`, ()=> {
 
 //Fetch data from db.json endpoint
 document.addEventListener(`DOMContentLoaded`,(e)=>{
-    fetch('https://raw.githubusercontent.com/AndreCarvalli/com.skrow.v0.1/refs/heads/main/db.json')
+    fetch('https://raw.githubusercontent.com/AndreCarvalli/com.skrow.v0.1/refs/heads/gh-pages/db.json')
     .then(res => {
         if(!res.ok){
             throw new Error(`Request failed: ${res.status} ${res.statusText}`)
@@ -70,7 +70,7 @@ document.addEventListener(`DOMContentLoaded`,(e)=>{
     .catch(error => console.log(error))    
 })
 
-// Display data in HTML .... projects> milestones > tasks []
+// Display Data in HTML .... projects> milestones > tasks []
 function displayInfo(data){
     
     data.forEach(element => {
