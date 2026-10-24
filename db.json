@@ -2,8 +2,90 @@
   "projects": [
     {
       "id": "SKR-001",
-      "title": "Okolea Service: Website Development",
+      "title": "Okolea Service: Website ",
       "clientId": "Safaricom",
+      "currency": "KES",
+      "totalAmount": 50000,
+      "status": "in_progress",
+      "milestones": [
+        {
+          "id": "M1",
+          "title": "UI Design",
+          "amount": 15000,
+          "status": "pending",
+          "clientApproved": false,
+          "developerApproved": false,
+          "tasks": [
+            {
+              "id": "T1",
+              "title": "Create wireframes",
+              "description": "Design the layout of the website pages",
+              "developerId": "DEV-201",
+              "developerName": "Andre Carvalli",
+              "amount": 5000,
+              "status": "completed",
+              "completedAt": "2026-10-21T14:00:00Z",
+              "clientApproved": true,
+              "developerApproved": true,
+              "paymentStatus": "released"
+            },
+            {
+              "id": "T2",
+              "title": "Create UI designs",
+              "description": "Create high-fidelity designs for the website",
+              "developerId": "DEV-202",
+              "developerName": "Bahati Muimi",
+              "amount": 10000,
+              "status": "in_progress",
+              "completedAt": null,
+              "clientApproved": false,
+              "developerApproved": false,
+              "paymentStatus": "held"
+            }
+          ]
+        },
+        {
+          "id": "M2",
+          "title": "Development",
+          "amount": 35000,
+          "status": "locked",
+          "clientApproved": false,
+          "developerApproved": false,
+          "tasks": [
+            {
+              "id": "T3",
+              "title": "Develop frontend",
+              "description": "Build responsive website pages",
+              "developerId": "DEV-202",
+              "developerName": "Freeman Magak",
+              "amount": 20000,
+              "status": "pending",
+              "completedAt": null,
+              "clientApproved": false,
+              "developerApproved": false,
+              "paymentStatus": "locked"
+            },
+            {
+              "id": "T4",
+              "title": "Develop backend",
+              "description": "Build APIs and database functionality",
+              "developerId": "DEV-203",
+              "developerName": "Joshua Loyd",
+              "amount": 15000,
+              "status": "pending",
+              "completedAt": null,
+              "clientApproved": false,
+              "developerApproved": false,
+              "paymentStatus": "locked"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SKR-001",
+      "title": "ABSA Remittance App",
+      "clientId": "ABSA BANK KENYA",
       "currency": "KES",
       "totalAmount": 50000,
       "status": "in_progress",

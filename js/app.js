@@ -24,7 +24,7 @@ form.addEventListener(`submit`,(event)=>{
      }
     
      if(!credentials.username == ""){
-        project_card.style.display = "block"
+        project_card.style.display = "flex"
         project_login_prompt.style.display ="none"
         login_dialog.close()
      }
@@ -39,11 +39,11 @@ btn_login.addEventListener(`click`, ()=> {
 })
 
 
-// const API = `http://localhost:4000/projects`
+const API = `http://localhost:4000/projects`
 const API2 = `https://andrecarvalli.github.io/com.skrow.v0.1/db.json`
 
 //Fetch data from db.json endpoint
-fetch(API2)
+fetch(API)
     .then(res => {
         if(!res.ok){
             throw new Error(`Request failed: ${res.status} ${res.statusText}`)
@@ -60,52 +60,80 @@ fetch(API2)
 
 
 // Display Data in HTML .... projects> milestones > tasks []
-function displayInfo(data){
-    
-    data.projects.forEach(element => {
-            project_name.textContent = `Project : ${element.title}`
-            client_name.textContent = `Client : ${element.clientId}`
-            project_amount.textContent = `Project Amount : ${element.currency} ${element.totalAmount}`
 
-            console.log(element.milestones);
-            
-            //Iterating through milestones
-            element.milestones.forEach(item => { 
-                milestones_container.innerHTML += `
-                    <div>
-                        <h5 class="milestone-name">${item.title}</h5>
-                        <table class="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th>Task title</th>
-                                    <th>Developer Name</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="tasks"></tbody>
-                        </table>
-                    </div>
-                `
+const projects_container = document.querySelector('#projects-container');
 
-                const table_body = milestones_container.lastElementChild.querySelector('.tasks')
-                item.tasks.forEach(task => {
-                
-                    table_body.innerHTML += `
-                         <tr>
-                            <td>${task.title}</td>
-                            <td>${task.developerName}</td>
-                            <td>${task.amount}</td>
-                            <td>${task.status}</td>
-                        </tr>
-                `
-                }) 
-            })
+function displayInfo(data) {
+
+    // Clear existing project cards
+    projects_container.innerHTML = '';
+    data.forEach(project => {
+        // Create project card
+        projects_container.innerHTML += `
+            <div class="single-card">
+
+                <div class="title-section">
+                    <h3>Project: ${project.title}</h3>
+                    <p>Client: ${project.clientId}</p>
+                    <p> Project Amount: ${project.currency} ${project.totalAmount}</p>
+                    <p>Status: ${project.status}</p>
+                </div>
+
+                <div class="milestones" id="milestones-${project.id}"></div>
+                <button class="btn-add-tasks" data-project-id="${project.id}"> Add Tasks </button>
+            </div>
+        `;
+
+        // Get the milestone container for this project
+        const project_card = projects_container.lastElementChild.querySelector('.milestones');
+       
+        // Loop through milestones
+        project.milestones.forEach(milestone => {
+
+            project_card.innerHTML += `
+                <div class="milestone-item"  data-milestone-id="${milestone.id}">
+
+                    <h5 class="milestone-name">${milestone.title}</h5>
+                    <p> Milestone Amount: ${project.currency} ${milestone.amount}</p>
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Task title</th>
+                                <th>Developer Name</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tasks"></tbody>
+                    </table>
+                </div>
+            `;
+
+            // Get the task table belonging to this milestone
+            const table_body = project_card.lastElementChild.querySelector('.tasks');
+
+            // Loop through tasks
+            milestone.tasks.forEach(task => {
+
+                table_body.innerHTML += `
+                    <tr>
+                        <td>${task.title}</td>
+                        <td>${task.developerName}</td>
+                        <td>${project.currency} ${task.amount}</td>
+                        <td>${task.status}</td>
+                    </tr>
+                `;
+            });
+
+        });
+
     });
+
 }
 
 
-const btn_add_tasks = document.querySelector('#btn-add-tasks')
+const btn_add_tasks = document.querySelector('.btn-add-tasks')
 const task_input_dialog = document.querySelector('#task-input-dialog')
 
 btn_add_tasks.addEventListener(`click`,(event)=>{
@@ -120,7 +148,7 @@ function populateMilestones(data) {
         <option value="">Select a milestone</option>
     `;
 
-    data.projects.forEach(project => {
+    data.forEach(project => {
         project.milestones.forEach(milestone => {
 
             milestone_select.innerHTML += `

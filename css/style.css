@@ -238,6 +238,7 @@ dialog::backdrop{
     gap: 32px;
     justify-content: center;
     align-items: center;
+    background-color: #060E20;
 }
 .project-login-prompt{
     width:400px;
@@ -252,19 +253,25 @@ dialog::backdrop{
     border-radius: 8px;
 }
 .project-card{
-    border: 1px solid grey;
-    border-radius: 16px;
-    display: flex;x`x`
-    flex-direction: column;
+    width: 100%;
+    height: auto;
+    display: flex;
     justify-content: center;
     align-items: center;
+    gap:24px;
 }
-
+.single-card{
+    background-color: #21203E;
+    width:450px;
+    margin: 24px;
+    border-radius: 16px;
+}
 .title-section{
     background-color: #040a17;
     padding:24px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
+    width: 100%;
 }
 
 .milestones{
