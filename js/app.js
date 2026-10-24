@@ -41,9 +41,10 @@ btn_login.addEventListener(`click`, ()=> {
 
 const API = `http://localhost:4000/projects`
 const API2 = `https://andrecarvalli.github.io/com.skrow.v0.1/db.json`
+const API3 = `https://raw.githubusercontent.com/AndreCarvalli/com.skrow.v0.1/refs/heads/main/db.json`
 
 //Fetch data from db.json endpoint
-fetch(API2)
+fetch(API3)
     .then(res => {
         if(!res.ok){
             throw new Error(`Request failed: ${res.status} ${res.statusText}`)
