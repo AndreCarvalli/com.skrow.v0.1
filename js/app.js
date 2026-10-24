@@ -43,7 +43,7 @@ const API = `http://localhost:4000/projects`
 const API2 = `https://andrecarvalli.github.io/com.skrow.v0.1/db.json`
 
 //Fetch data from db.json endpoint
-fetch(API)
+fetch(API2)
     .then(res => {
         if(!res.ok){
             throw new Error(`Request failed: ${res.status} ${res.statusText}`)
@@ -66,8 +66,9 @@ const projects_container = document.querySelector('#projects-container');
 function displayInfo(data) {
 
     // Clear existing project cards
-    projects_container.innerHTML = '';
-    data.forEach(project => {
+    projects_container.innerHTML = ''
+
+    data.projects.forEach(project => {
         // Create project card
         projects_container.innerHTML += `
             <div class="single-card">
@@ -129,7 +130,6 @@ function displayInfo(data) {
         });
 
     });
-
 }
 
 
@@ -148,7 +148,7 @@ function populateMilestones(data) {
         <option value="">Select a milestone</option>
     `;
 
-    data.forEach(project => {
+    data.projects.forEach(project => {
         project.milestones.forEach(milestone => {
 
             milestone_select.innerHTML += `
