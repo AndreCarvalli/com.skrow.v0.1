@@ -311,11 +311,13 @@ dialog::backdrop{
 .imgbox
 {
 	margin-right: 1rem;
+
 }
 .imgbox img
 {
 	border-radius: 50%;
 	width: 2rem;
+    height: 2rem;
 	border: 2px solid #cec5c5;
 }
 .detbox

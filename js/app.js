@@ -11,6 +11,8 @@ const project_login_prompt = document.querySelector('.project-login-prompt ')
 
 const milestones_container = document.querySelector('.milestones')
 const form = document.querySelector('#login-form')
+const milestone_select = document.getElementById('milestone-select');
+let projectsData = [];
 
 
 //Simulate User Log In
@@ -22,7 +24,6 @@ form.addEventListener(`submit`,(event)=>{
      }
     
      if(!credentials.username == ""){
-        console.log(credentials);
         project_card.style.display = "block"
         project_login_prompt.style.display ="none"
         login_dialog.close()
@@ -38,14 +39,11 @@ btn_login.addEventListener(`click`, ()=> {
 })
 
 
-
-const API = `http://localhost:4000/projects`
+// const API = `http://localhost:4000/projects`
 const API2 = `https://andrecarvalli.github.io/com.skrow.v0.1/db.json`
-const API3 = 'https://raw.githubusercontent.com/AndreCarvalli/com.skrow.v0.1/refs/heads/main/db.json'
 
 //Fetch data from db.json endpoint
-document.addEventListener(`DOMContentLoaded`, (e) => {
-    fetch('https://andrecarvalli.github.io/com.skrow.v0.1/db.json')
+fetch(API2)
     .then(res => {
         if(!res.ok){
             throw new Error(`Request failed: ${res.status} ${res.statusText}`)
@@ -53,16 +51,18 @@ document.addEventListener(`DOMContentLoaded`, (e) => {
         return res.json()
     })
     .then(data => {
-        console.log(data)
-        displayInfo(data)
+            console.log(`json data: ${data}`);
+            projectsData = data;
+            populateMilestones(data);
+            displayInfo(data);
     })
-    .catch(error => console.log(error))    
-})
+    .catch(error => console.log(error))   
+
 
 // Display Data in HTML .... projects> milestones > tasks []
 function displayInfo(data){
     
-    data.forEach(element => {
+    data.projects.forEach(element => {
             project_name.textContent = `Project : ${element.title}`
             client_name.textContent = `Client : ${element.clientId}`
             project_amount.textContent = `Project Amount : ${element.currency} ${element.totalAmount}`
@@ -104,7 +104,37 @@ function displayInfo(data){
     });
 }
 
-//Adding a project to our code 
+
+const btn_add_tasks = document.querySelector('#btn-add-tasks')
+const task_input_dialog = document.querySelector('#task-input-dialog')
+
+btn_add_tasks.addEventListener(`click`,(event)=>{
+    task_input_dialog.showModal()
+})
+
+
+// Populate Milestone options
+function populateMilestones(data) {
+
+    milestone_select.innerHTML = `
+        <option value="">Select a milestone</option>
+    `;
+
+    data.projects.forEach(project => {
+        project.milestones.forEach(milestone => {
+
+            milestone_select.innerHTML += `
+                <option value="${milestone.id}">
+                    ${milestone.title}
+                </option>
+            `;
+        });
+    });
+}
+
+
+//POSTING TO A DB in a nested json file is a bit complex for me now
+
 // document.addEventListener(`DOMContentLoaded`,(e)=>{
 //     e.preventDefault()
 //     fetch('http://localhost:4000/projects', {

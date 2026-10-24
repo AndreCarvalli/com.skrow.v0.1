@@ -66,11 +66,12 @@
 
         <!-- HERO SECTION -->
         <section id="hero" class="hero">
-           
-            <section class="hero-content">
-                <p class="fs-lg gradient-text"> For freelancers, developer teams, creatives and construction crews all over the world</p>
 
-                <h1 class="fs-3xl">We hold your project funds securely  <span class="gradient-text">IN ESCROW </span>
+            <section class="hero-content">
+                <p class="fs-lg gradient-text"> For freelancers, developer teams, creatives and construction crews all
+                    over the world</p>
+
+                <h1 class="fs-3xl">We hold your project funds securely <span class="gradient-text">IN ESCROW </span>
                     and pay your team once their tasks are completed..</h1>
 
                 <div class="info-button">
@@ -82,10 +83,10 @@
                 </div>
             </section>
 
-             <section class="hero-image">
+            <section class="hero-image">
                 <img class="img" src="assets/images/escrow.png" alt="">
             </section>
-            
+
         </section>
 
         <!-- HOW IT WORKS SECTIONn -->
@@ -135,7 +136,7 @@
                 <div class="milestones">
                     <!-- Populate via DOM -->
                 </div>
-                <button>Add Milestones</button>
+                <button id="btn-add-tasks">Add Tasks</button>
             </div>
         </section>
 
@@ -147,7 +148,7 @@
                 <div class="testimonial-card eachdiv">
                     <div class="userdetails">
                         <div class="imgbox">
-                            <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg"
+                            <img src="https://plus.unsplash.com/premium_photo-1688350808212-4e6908a03925?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
                                 alt="">
                         </div>
                         <div class="detbox">
@@ -169,7 +170,7 @@
                 <div class="testimonial-card eachdiv">
                     <div class="userdetails">
                         <div class="imgbox">
-                            <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg"
+                            <img src="https://plus.unsplash.com/premium_photo-1688350808212-4e6908a03925?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
                                 alt="">
                         </div>
                         <div class="detbox">
@@ -189,6 +190,33 @@
                     </div>
                 </div>
             </section>
+
+
+            <dialog id="task-input-dialog">
+                <section id="tast-input-form">
+                    <form id="task-form">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Select Milestone</label>
+                            <select id="milestone-select" class="form-control" required>
+                                <!-- I will add options here using innerHTML -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Task</label>
+                            <input type="text" class="form-control" id="task">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Assign to</label>
+                            <input type="text" class="form-control" id="assign">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amount">
+                        </div>
+                        <button type="submit" class="btn-solid btn-login">Submit</button>
+                    </form>
+                </section>
+            </dialog>
 
 
         </section>
